@@ -34,9 +34,12 @@ void loop() {
   Serial.println(" cm");
 
   // Se a distância for menor que 20cm, envia um alerta para o ESP8266
-  if (distance1 < 20 || distance2 < 20) {
-    espSerial.println("ALERTA: Objeto detectado próximo!");
-    Serial.println("Alerta enviado ao ESP8266.");
+  if (distance1 < 20) {
+    espSerial.println("ENTRADA: Entrou um veiculo!");
+    Serial.println("Alerta de ENTRADA de veiculo.");
+  } else if (distance2 < 20){
+    espSerial.println("SAIDA: Saiu um veiculo!");
+    Serial.println("Alerta de SAIDA de veiculo.");
   }
 
   // Lê e imprime todas as mensagens recebidas do ESP8266
